@@ -1,5 +1,8 @@
 require('colors');
-const {requirerMenu, pausa} = require('./helpers/inquirer');
+const {inquirerMenu,
+    pausa,
+    leerInput 
+    } = require('./helpers/inquirer');
 
 const Tareas = require('./models/tareas');
 
@@ -10,8 +13,12 @@ let opt= ''
 
 const tareas = new Tareas();
 
-do
+do{
+    opt = await inquirerMenu();
+
+    await pausa();
+}while(opt !== '0');
 
 }
 
-main()
+main();
